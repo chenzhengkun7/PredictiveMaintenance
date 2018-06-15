@@ -15,12 +15,14 @@ def initLogging():
         ch.setFormatter(formatter)
         logger.addHandler(ch)
 
-def LOG(msg):
+def LOG(msg, printLog=False):
     global logger
     if not logger:
         initLogging()
     logger.info(msg)
     logger.handlers[0].flush()
+    if printLog:
+        print(msg)
     
 
 def DEBUG(msg):
